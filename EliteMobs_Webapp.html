@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>EliteMobs Loot Generator</title>
+
+<!-- Custom stylesheet -->
+
+<link rel="stylesheet" type="text/css" href="EliteMobs_Webapp.css">
+
+<!-- Custom script -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script type="text/javascript" src="EliteMobs_Webapp.js"></script>
+
+<!-- Font -->
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans"/>
+</head>
+
+<body>
+<div id="background">
+  <div id="container">
+    <div id="inputContainer">
+      <div>Item Name: *</div>
+      <div>
+        <input type="text" name="itemName" class="largeText" placeholder="My Awesome Sword" maxlength="30" id="ItemName">
+      </div>
+      <div>Item Type: *</div>
+      <div>
+        <input type="text" name="itemType" class="largeText" placeholder="DIAMOND_SWORD" maxlength="30" id="ItemType">
+      </div>
+      <div>Item Display Name: *</div>
+      <div>
+        <input type="text" name="itemDisplayName" class="largeText" placeholder="&aMy &cAwesome &eSword" maxlength="30" id="ItemDisplayName">
+      </div>
+      <div>Item Lore: *</div>
+      <div id="lore">
+        <div class="loreHolder">
+          <div>Lore:
+            <input type="text" name="itemLore1" placeholder="This is an AWESOME sword!" maxlength="30" class="lore" id="ItemLore">
+          </div>
+        </div>
+      </div>
+      <div>Enchantments:</div>
+      <div id="enchantments">
+        <div class="enchantments">
+          <select class="enchantmentsList" id="enchantmentsList">
+            <option value=""></option>
+            <option value="ARROW_DAMAGE">Power - Provides extra damage when shooting arrows from bows</option>
+            <option value="ARROW_FIRE">Flame - Sets entities on fire when hit by arrows shot from a bow</option>
+            <option value="ARROW_INFINITE">Infinity - Provides infinite arrows when shooting a bow</option>
+            <option value="ARROW_KNOCKBACK">Punch - Provides a knockback when an entity is hit by an arrow from a bow</option>
+            <option value="BINDING_CURSE">Curse of Binding - Armor item cannot be removed (wearable)</option>
+            <option value="DAMAGE_ALL">Sharpness - Increases damage against all targets</option>
+            <option value="DAMAGE_ARTHROPODS">Bane of Arthropods - Increases damage against arthropod targets</option>
+            <option value="DAMAGE_UNDEAD">Smite - Increases damage against undead targets</option>
+            <option value="DEPTH_STRIDER">Depth Strider - Increases walking speed while in water</option>
+            <option value="DIG_SPEED">Efficiency - Increases the rate at which you mine/dig</option>
+            <option value="DURABILITY">Unbreaking - Decreases the rate at which a tool looses durability</option>
+            <option value="FIRE_ASPECT">Fire Aspect - When attacking a target, has a chance to set them on fire</option>
+            <option value="FROST_WALKER">Frost Walker - Freezes any still water adjacent to ice / frost which player is walking on (boots only)</option>
+            <option value="KNOCKBACK">Knockback - All damage to other targets will knock them back when hit</option>
+            <option value="LOOT_BONUS_BLOCKS">Fortune - Provides a chance of gaining extra loot when destroying blocks</option>
+            <option value="LOOT_BONUS_MOBS">Looting - Provides a chance of gaining extra loot when killing monsters</option>
+            <option value="LUCK">Luck of the Sea - Decreases odds of catching worthless junk</option>
+            <option value="LURE">Lure - Increases rate of fish biting your hook</option>
+            <option value="MENDING">Mending - Allows mending the item using experience orbs</option>
+            <option value="OXYGEN">Respiration - Decreases the rate of air loss whilst underwater</option>
+            <option value="PROTECTION_ENVIRONMENTAL">Protection - Provides protection against environmental damage</option>
+            <option value="PROTECTION_EXPLOSIONS">Blast Protection - Provides protection against explosive damage</option>
+            <option value="PROTECTION_FALL">Feather Falling - Provides protection against fall damage</option>
+            <option value="PROTECTION_FIRE">Fire Protection - Provides protection against fire damage</option>
+            <option value="PROTECTION_PROJECTILE">Projectile Protection - Provides protection against projectile damage (ex. arrows)</option>
+            <option value="SILK_TOUCH">Silk Touch - Allows blocks to drop themselves instead of fragments (for example, stone instead of cobblestone)</option>
+            <option value="SWEEPING_EDGE">Sweeping Edge - Increases damage against targets when using a sweep attack</option>
+            <option value="THORNS">Thorns - Damages the attacker</option>
+            <option value="VANISHING_CURSE">Curse of Vanishing - Item disappears on death instead of dropping</option>
+            <option value="WATER_WORKER">Aqua Affinity - Increases the speed at which a player may mine underwater</option>
+          </select>
+          <input type="text" placeholder="1" class="numberInput">
+        </div>
+      </div>
+      <div>Potion Effects:</div>
+      <div id="potionEffects">
+        <div class="potionEffects">
+          <select class="potionEffectList" id="potionEffectList">
+            <option value=""></option>
+            <option value="ABSORPTION">Absorption - Adds damage absorption (shown as non-regenerateable golden hearts)</option>
+            <option value="BLINDNESS">Blindness - Impairs vision and disables the ability to sprint</option>
+            <option value="CONFUSION">Nausea - Wobbles and warps the screen</option>
+            <option value="DAMAGE_RESISTANCE">Resistance - Decreases damage dealt to an entity</option>
+            <option value="FAST_DIGGING">Haste - Increases mining and attack speed</option>
+            <option value="FIRE_RESISTANCE">Fire Resistance - Immunity to fire, etc.</option>
+            <option value="GLOWING">Glowing - Outlines entities (can be seen through blocks)</option>
+            <option value="HARM">Instant Damage - Damages entities, heals undead</option>
+            <option value="HEAL">Instant Health - Heals entities, damages undead</option>
+            <option value="HEALTH_BOOST">Health Boost - Increases the maximum health of an entity</option>
+            <option value="HUNGER">Increases food exhaustion</option>
+            <option value="INCREASE_DAMAGE">Strength - Increases melee damage</option>
+            <option value="INVISIBILITY">Invisibility - Grants invisibility and hides nametag</option>
+            <option value="JUMP">Jump Boost - Increases jump height and reduces fall damage</option>
+            <option value="LEVITATION">Levitation - Causes the entity to float into the air, changes gravity effect.</option>
+            <option value="LUCK">Luck - Increases chances of high-quality loot from the loot table</option>
+            <option value="NIGHT_VISION">Night Vision - Negates darkness</option>
+            <option value="POISON">Poison - Inflicts damage over time (but can't kill)</option>
+            <option value="REGENERATION">Regeneration - Regenerates health over time</option>
+            <option value="SATURATION">Saturation - Increases the food level of an entity each tick.</option>
+            <option value="SLOW">Slowness - Decreases walking speed</option>
+            <option value="SLOW_DIGGING">Mining Fatigue - Decreases mining and attack speed</option>
+            <option value="SPEED">Speed - Increases walking speed</option>
+            <option value="UNLUCK">Bad Luck - Reduces chances of high-quality loot from the loot table</option>
+            <option value="WATER_BREATHING">Water Breathing - Allows breathing underwater.</option>
+            <option value="WEAKNESS">Weakness - Decreases melee damage</option>
+            <option value="WITHER">Wither - Deals damage to an entity over time and gives the health to the shooter (can kill)</option>
+          </select>
+          <input type="text" placeholder="1" class="numberInput">
+        </div>
+      </div>
+      <div id="requiredFields">* required fields</div>
+      <div id="submit">
+        <input type="submit" value="Generate Item" id="submitButton">
+      </div>
+      <div id="tempStorage"></div>
+    </div>
+	  <div id="reload"></div>
+  </div>
+  <div class="buttonContainer"> <a type="button" target="_blank" href="https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html" class="bottomButton">See names of valid Item Types</a> <br>
+    <a type="button" href="#" id="colorCodes" class="bottomButton">Show/hide minecraft color/formatting codes </a>
+    <p class="colorCode" id="black">&0 : Black</p>
+    <p class="colorCode" id="darkBlue">&1 : Dark blue</p>
+    <p class="colorCode" id="darkGreen">&2 : Dark green</p>
+    <p class="colorCode" id="darkAqua">&3 : Dark aqua</p>
+    <p class="colorCode" id="darkRed">&4 : Dark red</p>
+    <p class="colorCode" id="darkPurple">&5 : Dark purple</p>
+    <p class="colorCode" id="gold">&6 : Gold</p>
+    <p class="colorCode" id="gray">&7 : Gray</p>
+    <p class="colorCode" id="darkGray">&8 : Dark gray</p>
+    <p class="colorCode" id="blue">&9 : Blue</p>
+    <p class="colorCode" id="green">&a : Green</p>
+    <p class="colorCode" id="aqua">&b : Aqua</p>
+    <p class="colorCode" id="red">&c : Red</p>
+    <p class="colorCode" id="lightPurple">&d : Light purple</p>
+    <p class="colorCode" id="yellow">&e : Yellow</p>
+    <p class="colorCode" id="white">&f : White</p>
+    <p class="colorCode" id="obfuscated">&k : Obfuscated</p>
+    <p class="colorCode" id="bold">&l : Bold</p>
+    <p class="colorCode" id="strikethrough">&m : Strikethrough</p>
+    <p class="colorCode" id="underline">&n : Underline</p>
+    <p class="colorCode" id="italic">&o : Italic</p>
+    <p class="colorCode" id="reset">&r : Reset</p>
+  </div>
+</div>
+</body>
+</html>

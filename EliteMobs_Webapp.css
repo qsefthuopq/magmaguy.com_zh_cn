@@ -1,0 +1,276 @@
+@charset "utf-8";
+/* CSS Document */
+
+html, body {
+	
+	height: 100%;
+	
+}
+
+#background {
+	
+	display: table;
+	margin: 0 auto;
+	
+}
+
+body {
+	
+	height: 100%;
+	position: relative;
+	background-color: ghostwhite;
+	font-family: "Open Sans";
+	
+}
+
+#container {
+	
+	padding: 20px;
+	
+	border-radius: 15px 50px;
+	border: 3px solid purple;
+	background-color: #515151;
+	color: azure;
+	
+}
+
+#inputContainer > div {
+	
+	margin-bottom: 5px;
+	
+}
+
+#submit {
+	
+	text-align: center;
+	padding: 20px;
+	padding-bottom: 0px;
+	
+}
+
+#submit > input {
+	
+	font-weight: bold;
+	border-radius: 5px;
+	
+}
+
+.lore {
+	
+	width: 250px;
+	
+}
+
+.largeText {
+	
+	width: 100%;
+	font-family: "Open Sans";
+	
+}
+
+.numberInput {
+	
+	width: 30px;
+	font-family: "Open Sans";
+	border-radius: 5px;
+	
+}
+
+.listSelect {
+	
+	width: 500px;
+	
+}
+
+.enchantmentsList, .potionEffectList {
+	
+	width: 300px;
+	
+}
+
+#requiredFields {
+	
+	font-size: 9px;
+	margin: 0px;
+	
+}
+
+.buttonContainer {
+	
+	text-align: center;
+	
+}
+
+.bottomButton {
+	background-color:#44c767;
+	-moz-border-radius:28px;
+	-webkit-border-radius:28px;
+	border-radius:28px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+	margin: 5px;
+	
+}
+.bottomButton:hover {
+	background-color:#5cbf2a;
+}
+.bottomButton:active {
+	position:relative;
+	top:1px;
+}
+
+.colorCode {
+	
+	margin: 0px;
+	font-size: 13px;
+	color: white;
+	visibility: hidden;
+	text-align: left;
+	
+}
+
+#black {
+	
+	background-color: #000000;
+	color: white;
+	
+}
+
+#darkBlue {
+	
+	background-color: #0000AA;
+	
+}
+
+#darkGreen {
+	
+	background-color: #00AA00;
+	
+}
+
+#darkAqua {
+	
+	background-color: #00AAAA;
+	
+}
+
+#darkRed {
+	
+	background-color: #AA0000;
+	
+}
+
+#darkPurple {
+	
+	background-color: #AA00AA;
+	
+}
+#gold {
+	
+	background-color: #FFAA00;
+	color: black;
+	
+}
+#gray {
+	
+	background-color: #AAAAAA;
+	color: black;
+	
+}
+#darkGray {
+	
+	background-color: #555555;
+	
+}
+#blue {
+	
+	background-color: #5555FF;
+	
+}
+
+#green {
+	
+	background-color: #55FF55;
+	color: black;
+	
+}
+#aqua {
+	
+	background-color: #55FFFF;
+	color: black;
+	
+}
+
+#red {
+	
+	background-color: #FF5555;
+	color: black;
+	
+}
+
+#lightPurple {
+	
+	background-color: #FF55FF;
+	color: black;
+	
+}
+
+#yellow {
+	
+	background-color: #FFFF55;
+	color: black;
+	
+}
+
+#white {
+	
+	color: black;
+	
+}
+
+#obfuscated {
+	
+	color: black;
+	
+}
+
+#bold {
+	
+	color: black;
+	font-weight: bold;
+	
+}
+
+#strikethrough {
+	
+	color: black;
+	text-decoration: line-through;
+	
+}
+
+#underline {
+	
+	color: black;
+	text-decoration: underline;
+	
+}
+
+#italic {
+	
+	color: black;
+	font-style: italic;
+	
+}
+
+#reset { 
+
+	color: black;
+	
+}
