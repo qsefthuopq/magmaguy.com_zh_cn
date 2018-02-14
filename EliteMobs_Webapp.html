@@ -77,7 +77,7 @@
             <option value="VANISHING_CURSE">Curse of Vanishing - Item disappears on death instead of dropping</option>
             <option value="WATER_WORKER">Aqua Affinity - Increases the speed at which a player may mine underwater</option>
           </select>
-          <input type="text" placeholder="1" class="numberInput">
+          <input type="text" placeholder="1" class="enchantNumberInput small-box">
         </div>
       </div>
       <div>Potion Effects:</div>
@@ -113,7 +113,13 @@
             <option value="WEAKNESS">Weakness - Decreases melee damage</option>
             <option value="WITHER">Wither - Deals damage to an entity over time and gives the health to the shooter (can kill)</option>
           </select>
-          <input type="text" placeholder="1" class="numberInput">
+          <input type="text" placeholder="1" class="potionNumberInput small-box">
+
+          <input type="radio" name="AffectedEntity" value="self"><div class="tooltip">Player<span class="tooltiptext">Apply potion effect to the person using the item. Optional.</span></div>
+          <input type="radio" name="AffectedEntity" value="self" class="tooltip"><div class="tooltip">Target<span class="tooltiptext">Apply potion effect to the entity hit by the item. Optional.</span></div>
+          <input type="radio" name="Enforcement" value="continuous" class="tooltip"><div class="tooltip">Continuous<span class="tooltiptext">Apply potion effect continuously as the item is held or worn. Requires Player or Target to be selected.</span></div>
+          <input type="radio" name="Enforcement" value="onHit" class="tooltip"><div class="tooltip">On Hit<span class="tooltiptext">Apply potion effect once another entity is hit. Requires Player or Target to be selected.</span></div>
+          <input type="text" placeholder="dynamic" class="weight medium-box" class="tooltip"><div class="tooltip">Weight<span class="tooltiptext">Don't touch this without reading the github wiki or asking the author!</span></div>
         </div>
       </div>
       <div id="requiredFields">* required fields</div>

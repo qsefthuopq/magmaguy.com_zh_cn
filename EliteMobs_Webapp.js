@@ -74,6 +74,59 @@ $(document).ready(function generateYML() {
 
 	document.getElementById("submitButton").onclick = function clicked() {
 
+		var count1 = 0;
+
+		$(".enchantmentsList").each( function () {
+
+		    count1++;
+
+        });
+
+		var count2 = 0;
+
+		 $(".enchantNumberInput").each(function () {
+
+		     count2++;
+
+		     if ($(this).val() === "") {
+
+		         if (count2 !== count1) {
+
+		             alert("Missing level value for enchantment.");
+		             throw new Error("No enchantment level.");
+
+                 }
+
+             }
+
+         });
+
+        var count3 = 0;
+
+		 $(".potionEffectList").each(function () {
+
+		     count3++;
+
+         });
+
+		 var count4 = 0;
+
+		 $(".potionNumberInput").each(function () {
+
+		     count4++;
+
+		     if ($(this).val() === "") {
+
+		         if (count4 !== count3) {
+
+		             alert("Missing level value for potion effect.");
+		             throw new Error ("No potion effect level.");
+
+                 }
+             }
+
+         });
+
 		if ($("#ItemName").val() !== "" && $("#ItemType").val() !== "" && $("#ItemDisplayName").val() !== "" && $(".lore").val() !== "") {
 
 			pageLoadPrevention = false;
@@ -295,15 +348,28 @@ function PotionEffectCreator() {
 
 			if ($(this).find("select").val() !== '') {
 
-				if ($(this).find("select").val() !== '') {
+                var text = "    - " + $(this).find("select").val() + "," + $(this).find(".potionNumberInput").val();
 
-					var text = "    - " + $(this).find("select").val() + "," + $(this).find("input").val();
+				if (($(this).children("input[type='radio'][name='AffectedEntity']").is(':checked'))) {
 
-					console.log(text);
+				    text += "," + $(this).children("input[type='radio'][name='AffectedEntity']").val();
 
-					$("#tempStorage").append(text + "\r\n");
+				    if ($(this).children("input[type='radio'][name='Enforcement']").is(':checked')) {
+
+                        text += "," + $(this).children("input[type='radio'][name='Enforcement']").val();
+
+                    }
 
 				}
+
+				if ($(this).find(".weight").val() !== "") {
+
+				    text += "," + $(this).find(".weight").val();
+
+                }
+
+                console.log(text);
+                $("#tempStorage").append(text + "\r\n");
 
 			}
 

@@ -68,7 +68,15 @@ body {
 	
 }
 
-.numberInput {
+.medium-box {
+
+	width: 55px;
+	font-family: "Open Sans";
+	border-radius: 5px;
+
+}
+
+.small-box {
 	
 	width: 30px;
 	font-family: "Open Sans";
@@ -273,4 +281,35 @@ body {
 
 	color: black;
 	
+}
+
+.tooltip {
+	position: relative;
+	display: inline-block;
+	border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+	visibility: hidden;
+	width: 120px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+
+	/* Position the tooltip */
+	position: absolute;
+	z-index: 1;
+}
+
+.tooltip .tooltiptext {
+	width: 120px;
+	bottom: 100%;
+	left: 50%;
+	margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+}
+
+.tooltip:hover .tooltiptext {
+	visibility: visible;
 }
