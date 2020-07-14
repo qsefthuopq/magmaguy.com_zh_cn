@@ -84,6 +84,8 @@ function generateTreasureChest() {
 
     let outputDisplay = document.getElementById("output");
     outputDisplay.innerText = config;
+	
+	download(`${treasure_chest.yml`, config);
 }
 
 function treasureChestLinkFactory(id) {

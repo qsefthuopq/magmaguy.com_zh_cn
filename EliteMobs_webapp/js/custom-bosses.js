@@ -202,6 +202,7 @@ function generateCustomBoss() {
 
 function sharedConfigFeatures() {
     let config = "";
+	
     config += getString("isEnabled");
     config += getString("entityType");
     config += getString("name");
@@ -231,6 +232,9 @@ function sharedConfigFeatures() {
     config += getString("announcementPriority");
     config += getString("followDistance");
     config += getStringList("onDeathCommands");
+	
+	download(`${getValue("name")}.yml`, config);
+	
     return config;
 }
 

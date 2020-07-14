@@ -98,6 +98,7 @@ function generateCustomItem() {
     let outputDisplay = document.getElementById("output");
     outputDisplay.innerText = config;
 
+	download(`${getValue("name")}.yml`, config);
 }
 
 function customItemLinkFactory(id) {
