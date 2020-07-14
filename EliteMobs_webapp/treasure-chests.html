@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- JQuery for woosh -->
+<script
+        src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+        crossorigin="anonymous"></script>
+
+<!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<!-- JS, Popper.js, and jQuery
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+<!-- Multiple Select JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/multiple-select-js/dist/css/multiple-select.css">
+<script src="https://cdn.jsdelivr.net/npm/multiple-select-js/dist/js/multiple-select.js"></script>
+
+
+<link rel="stylesheet" type="text/css" href="css/webapp.css">
+<script src="js/webapp.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/treasure-chests.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <title>EliteMobs Webapp</title>
+</head>
+<body>
+
+<div class="jumbotron">
+    <h1 class="display-4">EliteMobs Webapp</h1>
+    <p class="lead">Quickly create Custom Bosses, Regional Bosses, Custom Items and Treasure Chests for EliteMobs!</p>
+    <hr class="my-4">
+    <p>Select which kind of file you'd like to create:</p>
+    <p class="lead">
+    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link" data-toggle="tab" href="custom-bosses.html" role="tab"
+           aria-controls="nav-home" aria-selected="true">Custom Boss</a>
+        <a class="nav-item nav-link" data-toggle="tab" href="regional-bosses.html" role="tab"
+           aria-controls="nav-profile" aria-selected="false">Regional Boss</a>
+        <a class="nav-item nav-link" data-toggle="tab" href="custom-items.html" role="tab"
+           aria-controls="nav-profile" aria-selected="false">Custom Item</a>
+        <a class="nav-item nav-link active" data-toggle="tab" href="treasure-chests.html" role="tab"
+           aria-controls="nav-profile" aria-selected="false" id="active-tab">Treasure Chest</a>
+    </div>
+</div>
+
+
+<div class="main-container card border-primary mb-3 container col-5">
+    <form autocomplete="off" action="#" onsubmit="event.preventDefault(); generateTreasureChest();">
+        <div class="form-group">
+
+            <h3 class="card-header">
+                Create a <a href="https://github.com/MagmaGuy/EliteMobs/wiki/%5BGuide%5D-Creating-Treasure-Chests">Treasure
+                Chest!</a>!
+            </h3>
+
+            <div class="card-body">
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label" for="isEnabled">
+                        <a href="#" data-toggle="tooltip"
+                           data-placement="left"
+                           title="Click for wiki entry! Sets whether the item is enabled."
+                           onclick="treasureChestLinkFactory('isEnabled')">
+                            Enabled:</a></label>
+                    <div class="container col-sm-8">
+                        <select class="form-control required-field" id="isEnabled"
+                                data-toggle="tooltip" data-placement="right" title="Required field!">
+                            <option>true</option>
+                            <option>false</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label" for="chestType">
+                        <a href="#" data-toggle="tooltip"
+                           data-placement="left"
+                           title="Click for wiki entry! Sets the chest type."
+                           onclick="treasureChestLinkFactory('chestType')">Chest Type:</a></label>
+                    <div class="container col-sm-8">
+                        <select class="form-control required-field" id="chestType" data-toggle="tooltip"
+                                data-placement="right" title="Required field!">
+                            <option>CHEST</option>
+                            <option>TRAPPED_CHEST</option>
+                            <option>ENDER_CHEST</option>
+                            <option>SHULKER_BOX</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label" for="facing">
+                        <a href="#" data-toggle="tooltip"
+                           data-placement="left"
+                           title="Click for wiki entry! Sets the chest type."
+                           onclick="treasureChestLinkFactory('facing')">Facing:</a></label>
+                    <div class="container col-sm-8">
+                        <select class="form-control required-field" id="facing" data-toggle="tooltip"
+                                data-placement="right" title="Required field!">
+                            <option>NORTH</option>
+                            <option>SOUTH</option>
+                            <option>EAST</option>
+                            <option>WEST</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label" for="dropStyle">
+                        <a href="#" data-toggle="tooltip"
+                           data-placement="left"
+                           title="Click for wiki entry! Sets the chest type."
+                           onclick="treasureChestLinkFactory('dropStyle')">Drop Style:</a></label>
+                    <div class="container col-sm-8">
+                        <select class="form-control required-field" id="dropStyle" data-toggle="tooltip"
+                                data-placement="right" title="Required field!">
+                            <option>single</option>
+                            <option>group</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="restockTimer" class="col-sm-4 col-form-label">
+                        <a href="#" data-toggle="tooltip"
+                           data-placement="left"
+                           title="Click for wiki entry! Sets the name of the item."
+                           onclick="treasureChestLinkFactory('restockTimer')">Restock timer (minutes)</a></label>
+                    <div class="col-sm-8 autocomplete">
+                        <input type="text" class="form-control required-field" id="restockTimer" placeholder="60"
+                               required
+                               data-toggle="tooltip" data-placement="right" title="Required field!">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="lootList" class="col-sm-4 col-form-label">
+                        <a href="#" data-toggle="tooltip" data-placement="left"
+                           title="Click for wiki entry! Sets the list of loot the Treasure Chest can drop."
+                           onclick="treasureChestLinkFactory('lootList')">Loot List:
+                        </a>
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control lootList required-field" id="lootList"
+                               placeholder="magmaguys_sword:1" data-toggle="tooltip" data-placement="right"
+                               title="Required field!">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="mimicChance" class="col-sm-4 col-form-label">
+                        <a href="#" data-toggle="tooltip"
+                           data-placement="left"
+                           title="Click for wiki entry! Sets the chance of a Treasure Chest spawning a custom boss instead of treasure."
+                           onclick="treasureChestLinkFactory('mimicChance')">Mimic chance:</a></label>
+                    <div class="col-sm-8 autocomplete">
+                        <input type="text" class="form-control required-field" id="mimicChance" placeholder="0.5"
+                               required
+                               data-toggle="tooltip" data-placement="right" title="Required field!">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="mimicCustomBossesList" class="col-sm-4 col-form-label">
+                        <a href="#" data-toggle="tooltip" data-placement="left"
+                           title="Click for wiki entry! Sets the list of Custom Bosses that may spawn from the Treasure Chest."
+                           onclick="treasureChestLinkFactory('mimicCustomBossesList')">List of possible Custom Bosses:
+                        </a>
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control mimicCustomBossesList" id="mimicCustomBossesList">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="effects" class="col-sm-4 col-form-label">
+                        <a href="#" data-toggle="tooltip" data-placement="left"
+                           title="Click for wiki entry! Sets the list of visual effects Treasure Chests have."
+                           onclick="treasureChestLinkFactory('effects')">List of effects:
+                        </a>
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control effects" id="effects" placeholder="PORTAL">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="location" class="col-sm-4 col-form-label">
+                        <a href="#" data-toggle="tooltip"
+                           data-placement="left"
+                           title="Click for wiki entry! Sets the location of the Treasure Chest."
+                           onclick="treasureChestLinkFactory('location')">Chest Location</a></label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control required-field" id="location"
+                               placeholder="world,x,y,z,0,0"
+                               required
+                               data-toggle="tooltip" data-placement="right" title="Required field!">
+                    </div>
+                </div>
+
+                <br>
+
+                <button type="submit" class="btn btn-primary " id="generate">
+                    Generate!
+                </button>
+
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="output" class="card border-primary mb-3 container col-3">
+
+</div>
+
+</body>
+<!-- Footer -->
+<footer id="footer" class="page-footer font-small pt-4">
+
+    <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+
+        <!-- Grid row -->
+        <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-md-6 mt-md-0 mt-3">
+
+                <!-- Content -->
+                <h5 class="text-uppercase">Made by MagmaGuy</h5>
+                <p>If you like what I make, consider supporting me on <a
+                        href="https://www.patreon.com/magmaguy">Patreon</a>!</p>
+
+            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+</footer>
+</html>

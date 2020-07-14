@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- JQuery for woosh -->
+<script
+        src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+        crossorigin="anonymous"></script>
+
+<!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<!-- JS, Popper.js, and jQuery
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+<!-- Multiple Select JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/multiple-select-js/dist/css/multiple-select.css">
+<script src="https://cdn.jsdelivr.net/npm/multiple-select-js/dist/js/multiple-select.js"></script>
+
+
+<link rel="stylesheet" type="text/css" href="css/webapp.css">
+<script src="js/webapp.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/custom-bosses.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <title>EliteMobs Webapp</title>
+</head>
+<body>
+
+<div class="jumbotron">
+    <h1 class="display-4">EliteMobs Webapp</h1>
+    <p class="lead">Quickly create Custom Bosses, Regional Bosses, Custom Items and Treasure Chests for EliteMobs!</p>
+    <hr class="my-4">
+    <p>Select which kind of file you'd like to create:</p>
+    <p class="lead">
+    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="active-tab" data-toggle="tab" href="custom-bosses.html" role="tab"
+           aria-controls="nav-home" aria-selected="true">Custom Boss</a>
+        <a class="nav-item nav-link" data-toggle="tab" href="regional-bosses.html" role="tab"
+           aria-controls="nav-profile" aria-selected="false">Regional Boss</a>
+        <a class="nav-item nav-link" data-toggle="tab" href="custom-items.html" role="tab"
+           aria-controls="nav-profile" aria-selected="false">Custom Item</a>
+        <a class="nav-item nav-link" data-toggle="tab" href="treasure-chests.html" role="tab"
+           aria-controls="nav-profile" aria-selected="false">Treasure Chest</a>
+    </div>
+</div>
+
+
+<div class="main-container card border-primary mb-3 container col-5">
+    <form autocomplete="off" action="#" onsubmit="event.preventDefault(); generateCustomBoss();">
+        <div class="form-group">
+
+            <h3 class="card-header">
+                Create a <a href="https://github.com/MagmaGuy/EliteMobs/wiki/%5BGuide%5D-Creating-Custom-Bosses">Custom
+                Boss</a>!
+            </h3>
+
+            <div class="card-body">
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label" for="isEnabled">
+                        <a href="#" data-toggle="tooltip"
+                           data-placement="left"
+                           title="Click for wiki entry! Sets whether the boss is enabled."
+                           onclick="customBossLinkFactory('isEnabled')">
+                            Enabled:</a></label>
+                    <div class="container col-sm-8">
+                        <select class="form-control required-field" id="isEnabled"
+                                data-toggle="tooltip" data-placement="right" title="Required field!">
+                            <option>true</option>
+                            <option>false</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+
+                    <label for="entityType" class="col-sm-4 col-form-label">
+                        <a href="#" data-toggle="tooltip" data-placement="left"
+                           title="Click for wiki entry! Sets the Entity Type of the boss.Must use API values, click
+                            on the link to check valid values!" onclick="customBossLinkFactory('entityType')">Entity
+                            Type: </a>
+                        <img src="img/link_white.png" alt="link" style="width:15px;height:15px;" data-toggle="tooltip"
+                             data-placement="right"
+                             title="Click for valid values!"
+                             onclick="window.open('https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html')"></label>
+                    <div class="col-sm-8 autocomplete">
+                        <input type="text" class="form-control required-field" id="entityType" placeholder="ZOMBIE"
+                               required
+                               data-toggle="tooltip" data-placement="right" title="Required field!">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="name" class="col-sm-4 col-form-label">
+                        <a href="Name:" data-toggle="tooltip"
+                           data-placement="left"
+                           title="Click for wiki entry! Sets display name of the boss."
+                           onclick="customBossLinkFactory('name')">Name</a></label>
+                    <div class="col-sm-8 autocomplete">
+                        <input type="text" class="form-control required-field" id="name" placeholder="Cool name here"
+                               required
+                               data-toggle="tooltip" data-placement="right" title="Required field!">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="level" class="col-sm-4 col-form-label">
+                        <a href="#" data-toggle="tooltip" data-placement="left"
+                           title="Click for wiki entry! Sets level of the boss."
+                           onclick="customBossLinkFactory('level')">Level:</a></label>
+                    <div class="col-sm-8 autocomplete">
+                        <input type="text" class="form-control" id="level" placeholder="dynamic">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="timeout" class="col-sm-4 col-form-label">
+                        <a href="#" data-toggle="tooltip" data-placement="left"
+                           title="Click for wiki entry! Sets how long the boss is present before automatically despawning (in minutes)."
+                           onclick="customBossLinkFactory('timeout')">Timeout (minutes):</a></label>
+                    <div class="col-sm-8 autocomplete">
+                        <input type="text" class="form-control" id="timeout" placeholder="30">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label" for="isPersistent">
+                        <a href="#" data-toggle="tooltip"
+                           data-placement="left"
+                           title="Click for wiki entry! Sets whether the boss despawns on chunk unload."
+                           onclick="customBossLinkFactory('persistent')">Persistent:</a></label>
+                    <div class="container col-sm-8">
+                        <select class="form-control" id="isPersistent">
+                            <option></option>
+                            <option>true</option>
+                            <option>false</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="healthMultiplier" class="col-sm-4 col-form-label">
+                        <a href="#" data-toggle="tooltip"
+                           data-placement="left"
+                           title="Click for wiki entry! Set the health multiplier for the boss (0.X for lower, X.Y for higher)"
+                           onclick="customBossLinkFactory('healthMultiplier')">Health Multiplier:</a></label>
+                    <div class="col-sm-8 autocomplete">
+                        <input type="text" class="form-control" id="healthMultiplier"
+                               placeholder="1.0">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="damageMultiplier" class="col-sm-4 col-form-label">
+                        <a href="#" data-toggle="tooltip"
+                           data-placement="left"
+                           title="Click for wiki entry! Sets damage multiplier for the boss (0.X for lower, X.Y for higher)"
+                           onclick="customBossLinkFactory('damageMultiplier')">Damage Multiplier:</a></label>
+                    <div class="col-sm-8 autocomplete">
+                        <input type="text" class="form-control" id="damageMultiplier"
+                               placeholder="1.0">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="helmet" class="col-sm-4 col-form-label">
+                        <a href="#" data-toggle="tooltip" data-placement="left"
+                           title="Click for wiki entry! Sets the helmet material for the boss. Requires a valid spigot
+                           api material name, click on the link to see the list of valid names!"
+                           onclick="customBossLinkFactory('helmet')">Helmet:</a>
+                        <img src="img/link_white.png" alt="link" style="width:15px;height:15px;"
+                             data-toggle="tooltip"
+                             data-placement="right"
+                             title="Click for valid values!"
+                             onclick="window.open('https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html')">
+                    </label>
+                    <div class="col-sm-8 autocomplete">
+                        <input type="text" class="form-control" id="helmet" placeholder="AIR">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="chestplate" class="col-sm-4 col-form-label">
+                        <a href="#" data-toggle="tooltip" data-placement="left"
+                           title="Click for wiki entry! Sets the chestplate material for the boss. Requires a valid spigot
+                           api material name, click on the link to see the list of valid names!"
+                           onclick="customBossLinkFactory('chestplate')">Chestplate:</a>
+                        <img src="img/link_white.png" alt="link" style="width:15px;height:15px;"
+                             data-toggle="tooltip"
+                             data-placement="right"
+                             title="Click for valid values!"
+                             onclick="window.open('https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html')">
+                    </label>
+                    <div class="col-sm-8 autocomplete">
+                        <input type="text" class="form-control" id="chestplate" placeholder="AIR">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="leggings" class="col-sm-4 col-form-label">
+                        <a href="#" data-toggle="tooltip" data-placement="left"
+                           title="Click for wiki entry! Sets the leggings material for the boss. Requires a valid spigot
+                           api material name, click on the link to see the list of valid names!"
+                           onclick="customBossLinkFactory('leggings')">Leggings:</a>
+                        <img src="img/link_white.png" alt="link" style="width:15px;height:15px;" data-toggle="tooltip"
+                             data-placement="right"
+                             title="Click for valid values!"
+                             onclick="window.open('https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html')">
+                    </label>
+                    <div class="col-sm-8 autocomplete">
+                        <input type="text" class="form-control" id="leggings" placeholder="AIR">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="boots" class="col-sm-4 col-form-label">
+                        <a href="#" data-toggle="tooltip" data-placement="left"
+                           title="Click for wiki entry! Sets the boots material for the boss. Requires a valid spigot
+                           api material name, click on the link to see the list of valid names!"
+                           onclick="customBossLinkFactory('boots')">Boots:
+                        </a> <img src="img/link_white.png" alt="link" style="width:15px;height:15px;"
+                                  data-toggle="tooltip"
+                                  data-placement="right"
+                                  title="Click for valid values!"
+                                  onclick="window.open('https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html')">
+                    </label>
+                    <div class="col-sm-8 autocomplete">
+                        <input type="text" class="form-control" id="boots" placeholder="AIR">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="mainHand" class="col-sm-4 col-form-label">
+                        <a href="#" data-toggle="tooltip" data-placement="left"
+                           title="Click for wiki entry! Sets the main hand material for the boss. Requires a valid spigot
+                           api material name, click on the link to see the list of valid names!"
+                           onclick="customBossLinkFactory('mainHand')">Main Hand:
+                        </a><img src="img/link_white.png" alt="link" style="width:15px;height:15px;"
+                                 data-toggle="tooltip"
+                                 data-placement="right"
+                                 title="Click for valid values!"
+                                 onclick="window.open('https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html')">
+                    </label>
+                    <div class="col-sm-8 autocomplete">
+                        <input type="text" class="form-control" id="mainHand" placeholder="AIR">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="offHand" class="col-sm-4 col-form-label">
+                        <a href="#" data-toggle="tooltip" data-placement="left"
+                           title="Click for wiki entry! Sets the offhand material for the boss. Requires a valid spigot
+                           api material name, click on the link to see the list of valid names!"
+                           onclick="customBossLinkFactory('offHand')">Offhand:
+                        </a><img src="img/link_white.png" alt="link" style="width:15px;height:15px;"
+                                 data-toggle="tooltip"
+                                 data-placement="right"
+                                 title="Click for valid values!"
+                                 onclick="window.open('https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html')">
+                    </label>
+                    <div class="col-sm-8 autocomplete">
+                        <input type="text" class="form-control" id="offHand" placeholder="AIR">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label" for="isBaby">
+                        <a href="#" data-toggle="tooltip" data-placement="left"
+                           title="Click for wiki entry! Sets whether the boss is a baby, for valid entities."
+                           onclick="customBossLinkFactory('isBaby')">Is Baby:</a></label>
+                    <div class="container col-sm-8">
+                        <select class="form-control" id="isBaby">
+                            <option></option>
+                            <option>true</option>
+                            <option>false</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="powers" class="col-sm-4 cold-form-label">
+                        <a href="#" data-toggle="tooltip" data-placement="left"
+                           title="Click for wiki entry! Sets the boss powers."
+                           onclick="customBossLinkFactory('powers')">Powers:</a></label>
+                    <div class="container col-sm-8">
+                        <select id="powers" multiple>
+                            <option class="test" value="attack_arrow.yml">AttackArrow</option>
+                            <option value="attack_blinding.yml">AttackBlinding</option>
+                            <option value="attack_confusing.yml">AttackConfusing</option>
+                            <option value="attack_fire.yml">AttackFire</option>
+                            <option value="attack_fireball.yml">AttackFireball</option>
+                            <option value="attack_freeze.yml">AttackFreeze</option>
+                            <option value="attack_gravity.yml">AttackGravity</option>
+                            <option value="attack_lightning.yml">AttackLightning</option>
+                            <option value="attack_poison.yml">AttackPoison</option>
+                            <option value="attack_push.yml">AttackPush</option>
+                            <option value="attack_vacuum.yml">AttackVacuum</option>
+                            <option value="attack_weakness.yml">AttackWeakness</option>
+                            <option value="attack_web.yml">AttackWeb</option>
+                            <option value="attack_wither.yml">AttackWither</option>
+                            <option value="bonus_loot.yml">BonusLoot</option>
+                            <option value="bullet_hell.yml">BulletHell</option>
+                            <option value="corpse.yml">Corpse</option>
+                            <option value="flame_pyre.yml">FlamePyre</option>
+                            <option value="flamethrower.yml">Flamethrower</option>
+                            <option value="gold_explosion.yml">GoldExplosion</option>
+                            <option value="gold_shotgun.yml">GoldShotgun</option>
+                            <option value="hyper_loot.yml">HyperLoot</option>
+                            <option value="implosion.yml">Implosion</option>
+                            <option value="invisibility.yml">Invisibility</option>
+                            <option value="invulnerability_arrow.yml">InvulnerabilityArrow</option>
+                            <option value="invulnerability_fall_damage.yml">InvulnerabilityFallDamage</option>
+                            <option value="invulnerability_fire.yml">InvulnerabilityFire</option>
+                            <option value="invulnerability_knockback.yml">InvulnerabilityKnockback</option>
+                            <option value="meteor_shower.yml">MeteorShower</option>
+                            <option value="moonwalk.yml">Moonwalk</option>
+                            <option value="movement_speed.yml">MovementSpeed</option>
+                            <option value="skeleton_pillar.yml">SkeletonPillar</option>
+                            <option value="skeleton_tracking_arrow.yml">SkeletonTrackingArrow</option>
+                            <option value="spirit_walk.yml">SpiritWalk</option>
+                            <option value="summon_embers.yml">SummonEmbers</option>
+                            <option value="summon_raug.yml">SummonRaug</option>
+                            <option value="summon_the_returned.yml">SummonTheReturned</option>
+                            <option value="taunt.yml">Taunt</option>
+                            <option value="zombie_bloat.yml">ZombieBloat</option>
+                            <option value="zombie_friends.yml">ZombieFriends</option>
+                            <option value="zombie_necronomicon.yml">ZombieNecronomicon</option>
+                            <option value="zombie_parents.yml">ZombieParents</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="summonPowers" class="col-sm-4 col-form-label">
+                        <a href="#" data-toggle="tooltip"
+                           data-placement="left"
+                           title="Click for wiki entry! Sets the list of boss reinforcements that this boss can summon."
+                           onclick="customBossLinkFactory('summonPower')">Summon Powers:</a></label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control summonPowers" id="summonPowers"
+                               placeholder="summon:once:filename.yml">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="spawnMessage" class="col-sm-4 col-form-label">
+                        <a href="#" data-toggle="tooltip"
+                           data-placement="left"
+                           title="Click for wiki entry! Sets the message that is sent to players/discord upon boss spawn."
+                           onclick="customBossLinkFactory('spawnMessage')">Spawn Message:</a></label>
+                    <div class="col-sm-8 autocomplete">
+                        <input type="text" class="form-control" id="spawnMessage"
+                               placeholder="A test boss has been spawned!">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="deathMessage" class="col-sm-4 col-form-label">
+                        <a href="#" data-toggle="tooltip"
+                           data-placement="left"
+                           title="Click for wiki entry! Sets the message that is sent to players/discord upon boss death."
+                           onclick="customBossLinkFactory('deathMessage')">Death Message:</a></label>
+                    <div class="col-sm-8 autocomplete">
+                        <input type="text" class="form-control" id="deathMessage"
+                               placeholder="A test boss has been slain by $players!">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="escapeMessage" class="col-sm-4 col-form-label">
+                        <a href="#" data-toggle="tooltip"
+                           data-placement="left"
+                           title="Click for wiki entry! Sets message that is sent to players upon boss despawn (timeout)."
+                           onclick="customBossLinkFactory('escapeMessage')">Escape Message:</a></label>
+                    <div class="col-sm-8 autocomplete">
+                        <input type="text" class="form-control" id="escapeMessage"
+                               placeholder="A test boss entity has escaped!">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="locationMessage" class="col-sm-4 col-form-label">
+                        <a href="#" data-toggle="tooltip"
+                           data-placement="left"
+                           title="Click for wiki entry! Sets the bossbar text that is displayed when entering combat
+                            with the boss or when the boss is tracked by a player."
+                           onclick="customBossLinkFactory('locationMessage')">Location Message:</a></label>
+                    <div class="col-sm-8 autocomplete">
+                        <input type="text" class="form-control" id="locationMessage"
+                               placeholder="Test entity: $location">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="uniqueLootList" class="col-sm-4 col-form-label">
+                        <a href="#" data-toggle="tooltip"
+                           data-placement="left"
+                           title="Click for wiki entry! Sets the list of boss reinforcements that this boss can summon."
+                           onclick="customBossLinkFactory('summonPower')">Unique Loot List:</a></label>
+                    <div class="col-sm-8 autocomplete">
+                        <input type="text" class="form-control uniqueLootList" id="uniqueLootList"
+                               placeholder="magmaguys_toothpick.yml:1">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label" for="dropsEliteMobsLoot">
+                        <a href="#" data-toggle="tooltip"
+                           data-placement="left"
+                           title="Click for wiki entry! Sets whether the boss is able to drop Elite Mobs loot."
+                           onclick="customBossLinkFactory('dropsEliteMobsLoot')">Drops EliteMobs Loot:</a></label>
+                    <div class="container col-sm-8">
+                        <select class="form-control" id="dropsEliteMobsLoot">
+                            <option></option>
+                            <option>true</option>
+                            <option>false</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label" for="dropsVanillaLoot">
+                        <a href="#" data-toggle="tooltip"
+                           data-placement="left"
+                           title="Click for wiki entry! Sets whether the boss is able to drop vanilla Minecraft loot."
+                           onclick="customBossLinkFactory('dropsVanillaLoot')">Drops Vanilla Loot:</a></label>
+                    <div class="container col-sm-8">
+                        <select class="form-control" id="dropsVanillaLoot">
+                            <option></option>
+                            <option>true</option>
+                            <option>false</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="trails" class="col-sm-4 col-form-label">
+                        <a href="#" data-toggle="tooltip" data-placement="left"
+                           title="Click for wiki entry! Sets the trails that the boss has."
+                           onclick="customBossLinkFactory('trails')">Trails:</a>
+                        <img src="img/link_white.png" alt="link" style="width:15px;height:15px;" data-toggle="tooltip"
+                             data-placement="top"
+                             title="Click for valid particle values!"
+                             onclick="window.open('https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Particle.html')">
+                        <img src="img/link_white.png" alt="link" style="width:15px;height:15px;" data-toggle="tooltip"
+                             data-placement="top"
+                             title="Click for valid item values!"
+                             onclick="window.open('https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html')">
+                    </label>
+                    <div class=" col-sm-8 autocomplete">
+                        <input type="text" class="form-control" id="trails" placeholder="PORTAL">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="onDamageMessage" class="col-sm-4 col-form-label">
+                        <a href="#" data-toggle="tooltip"
+                           data-placement="left"
+                           title="Click for wiki entry! Sets the messages the boss says when it hits a player"
+                           onclick="customBossLinkFactory('onDamageMessage')">Damage Messages:</a></label>
+                    <div class="col-sm-8 autocomplete">
+                        <input type="text" class="form-control" id="onDamageMessage" placeholder="I hit you!">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="onDamagedMessage" class="col-sm-4 col-form-label">
+                        <a href="#" data-toggle="tooltip"
+                           data-placement="left"
+                           title="Click for wiki entry! Sets the message the boss says when it gets hit by a player."
+                           onclick="customBossLinkFactory('onDamagedMessage')">Damaged Messages:</a></label>
+                    <div class="col-sm-8 autocomplete">
+                        <input type="text" class="form-control" id="onDamagedMessage" placeholder="You hit me!">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="spawnChance" class="col-sm-4 col-form-label">
+                        <a href="#" data-toggle="tooltip" data-placement="left"
+                           title="Click for wiki entry! Sets the chance of the boss spawning when an Elite Mob of the
+                           same type as this boss spawns."
+                           onclick="customBossLinkFactory('spawnChance')">Spawn Chance:</a></label>
+                    <div class="col-sm-8 autocomplete">
+                        <input type="text" class="form-control" id="spawnChance" placeholder="0.0">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="mountEntity" class="col-sm-4 col-form-label">
+                        <a href="#" data-toggle="tooltip" data-placement="left"
+                           title="Click for wiki entry! Sets entity that the boss rides when it spawns. Can be an entity
+                            type from the Spigot API or the bossfile name of another boss."
+                           onclick="customBossLinkFactory('mountEntity')">Mount Entity:</a></label>
+                    <div class="col-sm-8 autocomplete">
+                        <input type="text" class="form-control" id="mountEntity" placeholder="HORSE">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label" for="announcementPriority">
+                        <a href="#" data-toggle="tooltip"
+                           data-placement="left"
+                           title="Click for wiki entry! Sets the announcement priority for the boss. 0 is silent, 1 is chat,
+                            2 is location and 3 is discord message"
+                           onclick="customBossLinkFactory('announcementPriority')">Announcement Priority:</a></label>
+                    <div class="container col-sm-8">
+                        <select class="form-control" id="announcementPriority">
+                            <option></option>
+                            <option>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="followDistance" class="col-sm-4 col-form-label">
+                        <a href="#" data-toggle="tooltip"
+                           data-placement="left"
+                           title="Click for wiki entry! Sets the follow distance Minecraft attribute of the boss."
+                           onclick="customBossLinkFactory('followDistance')">Follow Distance:</a></label>
+                    <div class="col-sm-8 autocomplete">
+                        <input type="text" class="form-control" id="followDistance" placeholder="30">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="onDeathCommands" class="col-sm-4 col-form-label">
+                        <a href="#" data-toggle="tooltip"
+                           data-placement="left"
+                           title="Click for wiki entry! Sets list of commands that will run when a boss dies. Placeholders:
+                            $players"
+                           onclick="customBossLinkFactory('onDeathCommands')">On Death Commands:</a></label>
+                    <div class="col-sm-8 autocomplete">
+                        <input type="text" class="form-control" id="onDeathCommands"
+                               placeholder="broadcast $players has killed $name! That was $level!">
+                    </div>
+                </div>
+
+                <br>
+
+                <button type="submit" class="btn btn-primary " id="generate">
+                    Generate!
+                </button>
+
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="output" class="card border-primary mb-3 container col-3">
+
+</div>
+
+</body>
+<!-- Footer -->
+<footer id="footer" class="page-footer font-small pt-4">
+
+    <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+
+        <!-- Grid row -->
+        <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-md-6 mt-md-0 mt-3">
+
+                <!-- Content -->
+                <h5 class="text-uppercase">Made by MagmaGuy</h5>
+                <p>If you like what I make, consider supporting me on <a
+                        href="https://www.patreon.com/magmaguy">Patreon</a>!</p>
+
+            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+</footer>
+</html>

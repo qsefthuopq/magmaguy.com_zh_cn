@@ -1,0 +1,94 @@
+html {
+    height: 100%;
+    position: relative;
+    font-family: "Open Sans";
+}
+
+h1{
+    font-family: "Open Sans SemiBold";
+}
+
+body {
+    background: #121212;
+    color: white;
+}
+
+.jumbotron {
+    background: #1c1c1c;
+}
+
+a {
+    color: dodgerblue;
+}
+
+.main-container {
+    background: #212121;
+    padding: 0px;
+}
+
+footer {
+    margin-top: 50px;
+    color: whitesmoke;
+    background: #1c1c1c;
+    border-top-style: solid;
+    border-top-color: dodgerblue;
+}
+
+
+#active-tab {
+    color: dodgerblue;
+    font-weight: bold;
+    background-color: #292929;
+    border-bottom: solid dodgerblue;
+}
+
+#generate {
+    background-color: #2fb72f;
+    margin: 0 auto;
+    display: block;
+    font-size: 20px;
+}
+
+#yt-video{
+    padding: 20px;
+}
+
+iframe{
+    margin: 0 auto;
+    display: block;
+}
+
+#output{
+    background: #212121;
+    padding: 20px;
+    font-size: x-large;
+}
+
+.form-control{
+    background: #585858 !important;
+    color: white !important;
+}
+
+.dropdown-select {
+    background: #707070 !important;
+    color: white !important;
+}
+
+.list-group-item{
+    background: #585858 !important;
+    color: white !important;
+}
+
+::placeholder {
+    color: #989898 !important;
+}
+
+.required-field{
+    border: red solid;
+}
+
+label{
+    color: dodgerblue;
+}
+
+/** #BB86FC **/
