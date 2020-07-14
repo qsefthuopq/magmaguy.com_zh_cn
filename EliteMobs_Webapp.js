@@ -146,6 +146,13 @@ $(document).ready(function generateYML() {
 			EnchantmentsCreator();
 			PotionEffectCreator();
 
+            if ($("#weight").val() !== "") {
+
+                var weightText = "    Drop Weight: " + $("#weight").val();
+                $("#tempStorage").append(weightText + "\r\n");
+
+            }
+
 			ta.val("  " + $.trim($("#tempStorage").text()));
 
 			ta.focus();
@@ -346,30 +353,25 @@ function PotionEffectCreator() {
 
 		$(".potionEffects").each(function () {
 
-			if ($(this).find("select").val() !== '') {
+			if ($(this).find(".potionNumberInput").val() !== '') {
 
                 var text = "    - " + $(this).find("select").val() + "," + $(this).find(".potionNumberInput").val();
 
-				if (($(this).children("input[type='radio'][name='AffectedEntity']").is(':checked'))) {
+				if ($(this).find(".AffectedEntity").val() !== '') {
 
-				    text += "," + $(this).children("input[type='radio'][name='AffectedEntity']").val();
+				    text += "," + $(this).find(".AffectedEntity").val();
 
-				    if ($(this).children("input[type='radio'][name='Enforcement']").is(':checked')) {
+				    if ($(this).find(".Enforcement").val() !== '') {
 
-                        text += "," + $(this).children("input[type='radio'][name='Enforcement']").val();
+                        text += "," + $(this).find(".Enforcement").val();
 
                     }
 
 				}
 
-				if ($(this).find(".weight").val() !== "") {
-
-				    text += "," + $(this).find(".weight").val();
-
-                }
+                $("#tempStorage").append(text + "\r\n");
 
                 console.log(text);
-                $("#tempStorage").append(text + "\r\n");
 
 			}
 

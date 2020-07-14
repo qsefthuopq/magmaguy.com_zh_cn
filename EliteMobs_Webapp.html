@@ -115,13 +115,28 @@
           </select>
           <input type="text" placeholder="1" class="potionNumberInput small-box">
 
-          <input type="radio" name="AffectedEntity" value="self"><div class="tooltip">Player<span class="tooltiptext">Apply potion effect to the person using the item. Optional.</span></div>
-          <input type="radio" name="AffectedEntity" value="self" class="tooltip"><div class="tooltip">Target<span class="tooltiptext">Apply potion effect to the entity hit by the item. Optional.</span></div>
-          <input type="radio" name="Enforcement" value="continuous" class="tooltip"><div class="tooltip">Continuous<span class="tooltiptext">Apply potion effect continuously as the item is held or worn. Requires Player or Target to be selected.</span></div>
-          <input type="radio" name="Enforcement" value="onHit" class="tooltip"><div class="tooltip">On Hit<span class="tooltiptext">Apply potion effect once another entity is hit. Requires Player or Target to be selected.</span></div>
-          <input type="text" placeholder="dynamic" class="weight medium-box" class="tooltip"><div class="tooltip">Weight<span class="tooltiptext">Don't touch this without reading the github wiki or asking the author!</span></div>
+            <div class="tooltip">
+                <span class="tooltiptext">Set which entity the potion effect gets applied to</span>
+          <select class="AffectedEntity tooltip">
+            <option value=""></option>
+            <option value="self">Apply effect to player</option>
+            <option value="target">Apply effect to enemy</option>
+          </select>
+            </div>
+
+            <div class="tooltip">
+            <span class="tooltiptext">Select when the entity gets affected by the potion effect</span>
+          <select class="Enforcement tooltip">
+
+            <option value=""></option>
+            <option value="continuous">Constantly reapply effect on player</option>
+            <option value="onHit">Apply when enemy gets hit</option>
+          </select>
+            </div>
         </div>
+
       </div>
+        <input type="text" id="weight" placeholder="dynamic" class="weight medium-box" class="tooltip"><div class="tooltip">Weight<span class="tooltiptext">Don't touch this without reading the github wiki or asking the author!</span></div>
       <div id="requiredFields">* required fields</div>
       <div id="submit">
         <input type="submit" value="Generate Item" id="submitButton">
