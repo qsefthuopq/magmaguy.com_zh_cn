@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>EliteMobs Loot Generator</title>
+<title>精英怪物战利品编辑器</title>
 
 <!-- Custom stylesheet -->
 
@@ -21,123 +21,123 @@
 <div id="background">
   <div id="container">
     <div id="inputContainer">
-      <div>Item Name: *</div>
+      <div>物品名: *</div>
       <div>
-        <input type="text" name="itemName" class="largeText" placeholder="My Awesome Sword" maxlength="30" id="ItemName">
+        <input type="text" name="itemName" class="largeText" placeholder="物品名不要用中文名" maxlength="30" id="ItemName">
       </div>
-      <div>Item Type: *</div>
+      <div>物品类型: *</div>
       <div>
         <input type="text" name="itemType" class="largeText" placeholder="DIAMOND_SWORD" maxlength="30" id="ItemType">
       </div>
-      <div>Item Display Name: *</div>
+      <div>物品展示名: *</div>
       <div>
-        <input type="text" name="itemDisplayName" class="largeText" placeholder="&aMy &cAwesome &eSword" maxlength="30" id="ItemDisplayName">
+        <input type="text" name="itemDisplayName" class="largeText" placeholder="&a你&c的&e钻石剑" maxlength="30" id="ItemDisplayName">
       </div>
-      <div>Item Lore: *</div>
+      <div>物品Lore描述: *</div>
       <div id="lore">
         <div class="loreHolder">
           <div>Lore:
-            <input type="text" name="itemLore1" placeholder="This is an AWESOME sword!" maxlength="30" class="lore" id="ItemLore">
+            <input type="text" name="itemLore1" placeholder="这是把好剑！" maxlength="30" class="lore" id="ItemLore">
           </div>
         </div>
       </div>
-      <div>Enchantments:</div>
+      <div>附魔:</div>
       <div id="enchantments">
         <div class="enchantments">
           <select class="enchantmentsList" id="enchantmentsList">
             <option value=""></option>
-            <option value="ARROW_DAMAGE">Power - Provides extra damage when shooting arrows from bows</option>
-            <option value="ARROW_FIRE">Flame - Sets entities on fire when hit by arrows shot from a bow</option>
-            <option value="ARROW_INFINITE">Infinity - Provides infinite arrows when shooting a bow</option>
-            <option value="ARROW_KNOCKBACK">Punch - Provides a knockback when an entity is hit by an arrow from a bow</option>
-            <option value="BINDING_CURSE">Curse of Binding - Armor item cannot be removed (wearable)</option>
-            <option value="DAMAGE_ALL">Sharpness - Increases damage against all targets</option>
-            <option value="DAMAGE_ARTHROPODS">Bane of Arthropods - Increases damage against arthropod targets</option>
-            <option value="DAMAGE_UNDEAD">Smite - Increases damage against undead targets</option>
-            <option value="DEPTH_STRIDER">Depth Strider - Increases walking speed while in water</option>
-            <option value="DIG_SPEED">Efficiency - Increases the rate at which you mine/dig</option>
-            <option value="DURABILITY">Unbreaking - Decreases the rate at which a tool looses durability</option>
-            <option value="FIRE_ASPECT">Fire Aspect - When attacking a target, has a chance to set them on fire</option>
-            <option value="FROST_WALKER">Frost Walker - Freezes any still water adjacent to ice / frost which player is walking on (boots only)</option>
-            <option value="KNOCKBACK">Knockback - All damage to other targets will knock them back when hit</option>
-            <option value="LOOT_BONUS_BLOCKS">Fortune - Provides a chance of gaining extra loot when destroying blocks</option>
-            <option value="LOOT_BONUS_MOBS">Looting - Provides a chance of gaining extra loot when killing monsters</option>
-            <option value="LUCK">Luck of the Sea - Decreases odds of catching worthless junk</option>
-            <option value="LURE">Lure - Increases rate of fish biting your hook</option>
-            <option value="MENDING">Mending - Allows mending the item using experience orbs</option>
-            <option value="OXYGEN">Respiration - Decreases the rate of air loss whilst underwater</option>
-            <option value="PROTECTION_ENVIRONMENTAL">Protection - Provides protection against environmental damage</option>
-            <option value="PROTECTION_EXPLOSIONS">Blast Protection - Provides protection against explosive damage</option>
-            <option value="PROTECTION_FALL">Feather Falling - Provides protection against fall damage</option>
-            <option value="PROTECTION_FIRE">Fire Protection - Provides protection against fire damage</option>
-            <option value="PROTECTION_PROJECTILE">Projectile Protection - Provides protection against projectile damage (ex. arrows)</option>
-            <option value="SILK_TOUCH">Silk Touch - Allows blocks to drop themselves instead of fragments (for example, stone instead of cobblestone)</option>
-            <option value="SWEEPING_EDGE">Sweeping Edge - Increases damage against targets when using a sweep attack</option>
-            <option value="THORNS">Thorns - Damages the attacker</option>
-            <option value="VANISHING_CURSE">Curse of Vanishing - Item disappears on death instead of dropping</option>
-            <option value="WATER_WORKER">Aqua Affinity - Increases the speed at which a player may mine underwater</option>
+            <option value="ARROW_DAMAGE">力量 - 你射出的弓箭会造成额外的伤害</option>
+            <option value="ARROW_FIRE">火矢 - 使你射出的弓箭击中的目标着火</option>
+            <option value="ARROW_INFINITE">无限 - 你射出的弓箭无消耗</option>
+            <option value="ARROW_KNOCKBACK">冲击 - 你射出的箭会击退目标</option>
+            <option value="BINDING_CURSE">绑定诅咒 - 你无法脱下这件装备</option>
+            <option value="DAMAGE_ALL">锋利 - 增加伤害</option>
+            <option value="DAMAGE_ARTHROPODS">节肢杀手 - 增加对节肢生物的伤害</option>
+            <option value="DAMAGE_UNDEAD">亡灵杀手 - 增加对亡灵的伤害</option>
+            <option value="DEPTH_STRIDER">深海探索者 - 增加水中行走速度</option>
+            <option value="DIG_SPEED">效率 - 增加你的挖掘速度</option>
+            <option value="DURABILITY">耐久 - 降低物品耐久减少速度</option>
+            <option value="FIRE_ASPECT">火焰附加 - 你的攻击会使目标着火</option>
+            <option value="FROST_WALKER">冰霜行者 - 你附近的水流会被冻结 (只对鞋子有效)</option>
+            <option value="KNOCKBACK">击退 - 击退你击中的目标</option>
+            <option value="LOOT_BONUS_BLOCKS">时运 - 你挖矿时有几率获得更多矿物</option>
+            <option value="LOOT_BONUS_MOBS">抢夺 - 你击杀怪物时有几率获得更多掉落物</option>
+            <option value="LUCK">海之馈赠 - 减少你钓到垃圾的几率</option>
+            <option value="LURE">饵钓 - 增加鱼上钩的几率</option>
+            <option value="MENDING">经验修补 - 允许你用经验修复物品</option>
+            <option value="OXYGEN">水下呼吸 - 减少你在水里的氧气消耗</option>
+            <option value="PROTECTION_ENVIRONMENTAL">保护 - 减少你受到的伤害</option>
+            <option value="PROTECTION_EXPLOSIONS">爆炸保护 - 减少你受到的爆炸伤害</option>
+            <option value="PROTECTION_FALL">摔落保护 - 减少你受到的摔落伤害</option>
+            <option value="PROTECTION_FIRE">火焰保护 - 减少你受到的火焰伤害</option>
+            <option value="PROTECTION_PROJECTILE">	弹射物保护 - 减少你受到的弹射物伤害 (比如箭)</option>
+            <option value="SILK_TOUCH">精准采集 - 可以让一些方块掉落本体 (例如挖掘获得石头而不是圆石)</option>
+            <option value="SWEEPING_EDGE">横扫之刃 - 增加横扫的伤害</option>
+            <option value="THORNS">荆棘 - 对攻击你的伤害造成伤害</option>
+            <option value="VANISHING_CURSE">消失诅咒 - 物品会在你死亡的时候消失</option>
+            <option value="WATER_WORKER">水下速掘 - 增加你在水下的挖掘速度</option>
           </select>
           <input type="text" placeholder="1" class="enchantNumberInput small-box">
         </div>
       </div>
-      <div>Potion Effects:</div>
+      <div>药水效果:</div>
       <div id="potionEffects">
         <div class="potionEffects">
           <select class="potionEffectList" id="potionEffectList">
             <option value=""></option>
-            <option value="ABSORPTION">Absorption - Adds damage absorption (shown as non-regenerateable golden hearts)</option>
-            <option value="BLINDNESS">Blindness - Impairs vision and disables the ability to sprint</option>
-            <option value="CONFUSION">Nausea - Wobbles and warps the screen</option>
-            <option value="DAMAGE_RESISTANCE">Resistance - Decreases damage dealt to an entity</option>
-            <option value="FAST_DIGGING">Haste - Increases mining and attack speed</option>
-            <option value="FIRE_RESISTANCE">Fire Resistance - Immunity to fire, etc.</option>
-            <option value="GLOWING">Glowing - Outlines entities (can be seen through blocks)</option>
-            <option value="HARM">Instant Damage - Damages entities, heals undead</option>
-            <option value="HEAL">Instant Health - Heals entities, damages undead</option>
-            <option value="HEALTH_BOOST">Health Boost - Increases the maximum health of an entity</option>
-            <option value="HUNGER">Increases food exhaustion</option>
-            <option value="INCREASE_DAMAGE">Strength - Increases melee damage</option>
-            <option value="INVISIBILITY">Invisibility - Grants invisibility and hides nametag</option>
-            <option value="JUMP">Jump Boost - Increases jump height and reduces fall damage</option>
-            <option value="LEVITATION">Levitation - Causes the entity to float into the air, changes gravity effect.</option>
-            <option value="LUCK">Luck - Increases chances of high-quality loot from the loot table</option>
-            <option value="NIGHT_VISION">Night Vision - Negates darkness</option>
-            <option value="POISON">Poison - Inflicts damage over time (but can't kill)</option>
-            <option value="REGENERATION">Regeneration - Regenerates health over time</option>
-            <option value="SATURATION">Saturation - Increases the food level of an entity each tick.</option>
-            <option value="SLOW">Slowness - Decreases walking speed</option>
-            <option value="SLOW_DIGGING">Mining Fatigue - Decreases mining and attack speed</option>
-            <option value="SPEED">Speed - Increases walking speed</option>
-            <option value="UNLUCK">Bad Luck - Reduces chances of high-quality loot from the loot table</option>
-            <option value="WATER_BREATHING">Water Breathing - Allows breathing underwater.</option>
-            <option value="WEAKNESS">Weakness - Decreases melee damage</option>
-            <option value="WITHER">Wither - Deals damage to an entity over time and gives the health to the shooter (can kill)</option>
+            <option value="ABSORPTION">伤害吸收 - 添加伤害吸收效果 (显示金心❤)</option>
+            <option value="BLINDNESS">失明 - 致盲目标</option>
+            <option value="CONFUSION">反胃 - 使目标画面扭曲</option>
+            <option value="DAMAGE_RESISTANCE">抗性提升 - 减少受到的伤害</option>
+            <option value="FAST_DIGGING">急迫 - 增加挖掘和攻击速度</option>
+            <option value="FIRE_RESISTANCE">防火 - 免疫火焰伤害.</option>
+            <option value="GLOWING">发光 - 使目标发光 (透过墙也看得到)</option>
+            <option value="HARM">瞬间伤害 - 对目标造成伤害,也可治疗亡灵</option>
+            <option value="HEAL">瞬间治疗 - 治疗目标,也可以伤害亡灵</option>
+            <option value="HEALTH_BOOST">生命提升 - 增加目标的生命上限</option>
+            <option value="HUNGER">饥饿 - 增加饱食度消耗速度</option>
+            <option value="INCREASE_DAMAGE">力量 - 增加近战伤害</option>
+            <option value="INVISIBILITY">隐身 - 使目标神隐</option>
+            <option value="JUMP">跳跃提升 - 增加跳跃高度并减少摔落伤害</option>
+            <option value="LEVITATION">飘浮 - 使目标远离尘世,飞升太虚.</option>
+            <option value="LUCK">幸运 - 增加获得好的战利品的几率</option>
+            <option value="NIGHT_VISION">夜视 - 驱散黑暗</option>
+            <option value="POISON">中毒 - 造成持续伤害 (但不会致死)</option>
+            <option value="REGENERATION">生命恢复 - 恢复生命值</option>
+            <option value="SATURATION">饱食 - 增加饱食度.</option>
+            <option value="SLOW">缓慢 - 减少移动速度</option>
+            <option value="SLOW_DIGGING">挖掘疲劳 - 减少挖掘和攻击速度</option>
+            <option value="SPEED">速度 - 增加移动速度</option>
+            <option value="UNLUCK">霉运 - 减少获得好的战利品的几率</option>
+            <option value="WATER_BREATHING">水下呼吸 - 可以让你在水下呼吸.</option>
+            <option value="WEAKNESS">虚弱 - 减少近战伤害</option>
+            <option value="WITHER">凋零 - 造成持续伤害并恢复发射者一定血量 (致死)</option>
           </select>
           <input type="text" placeholder="1" class="potionNumberInput small-box">
 
             <div class="tooltip">
-                <span class="tooltiptext">Set which entity the potion effect gets applied to</span>
+                <span class="tooltiptext">设置你想要给予药水效果的目标</span>
           <select class="AffectedEntity tooltip">
             <option value=""></option>
-            <option value="self">Apply effect to player</option>
-            <option value="target">Apply effect to enemy</option>
+            <option value="self">对玩家生效</option>
+            <option value="target">对敌人生效</option>
           </select>
             </div>
 
             <div class="tooltip">
-            <span class="tooltiptext">Select when the entity gets affected by the potion effect</span>
+            <span class="tooltiptext">选择目标获得药水效果的时机</span>
           <select class="Enforcement tooltip">
 
             <option value=""></option>
-            <option value="continuous">Constantly reapply effect on player</option>
-            <option value="onHit">Apply when enemy gets hit</option>
+            <option value="continuous">不断地将药水效果作用于玩家</option>
+            <option value="onHit">在目标受伤时获得药水效果</option>
           </select>
             </div>
         </div>
 
       </div>
-        <input type="text" id="weight" placeholder="dynamic" class="weight medium-box" class="tooltip"><div class="tooltip">Weight<span class="tooltiptext">Don't touch this without reading the github wiki or asking the author!</span></div>
-      <div id="requiredFields">* required fields</div>
+        <input type="text" id="weight" placeholder="dynamic" class="weight medium-box" class="tooltip"><div class="tooltip">权重<span class="tooltiptext">请阅读wiki了解相关信息再调整该选项！</span></div>
+      <div id="requiredFields">* 必填选项</div>
       <div id="submit">
         <input type="submit" value="Generate Item" id="submitButton">
       </div>
@@ -145,30 +145,30 @@
     </div>
 	  <div id="reload"></div>
   </div>
-  <div class="buttonContainer"> <a type="button" target="_blank" href="https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html" class="bottomButton">See names of valid Item Types</a> <br>
-    <a type="button" href="#" id="colorCodes" class="bottomButton">Show/hide minecraft color/formatting codes </a>
-    <p class="colorCode" id="black">&0 : Black</p>
-    <p class="colorCode" id="darkBlue">&1 : Dark blue</p>
-    <p class="colorCode" id="darkGreen">&2 : Dark green</p>
-    <p class="colorCode" id="darkAqua">&3 : Dark aqua</p>
-    <p class="colorCode" id="darkRed">&4 : Dark red</p>
-    <p class="colorCode" id="darkPurple">&5 : Dark purple</p>
-    <p class="colorCode" id="gold">&6 : Gold</p>
-    <p class="colorCode" id="gray">&7 : Gray</p>
-    <p class="colorCode" id="darkGray">&8 : Dark gray</p>
-    <p class="colorCode" id="blue">&9 : Blue</p>
-    <p class="colorCode" id="green">&a : Green</p>
-    <p class="colorCode" id="aqua">&b : Aqua</p>
-    <p class="colorCode" id="red">&c : Red</p>
-    <p class="colorCode" id="lightPurple">&d : Light purple</p>
-    <p class="colorCode" id="yellow">&e : Yellow</p>
-    <p class="colorCode" id="white">&f : White</p>
-    <p class="colorCode" id="obfuscated">&k : Obfuscated</p>
-    <p class="colorCode" id="bold">&l : Bold</p>
-    <p class="colorCode" id="strikethrough">&m : Strikethrough</p>
-    <p class="colorCode" id="underline">&n : Underline</p>
-    <p class="colorCode" id="italic">&o : Italic</p>
-    <p class="colorCode" id="reset">&r : Reset</p>
+  <div class="buttonContainer"> <a type="button" target="_blank" href="https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html" class="bottomButton">点击查看物品种类名</a> <br>
+    <a type="button" href="#" id="colorCodes" class="bottomButton">显示/隐藏 minecraft 颜色/格式 代码 </a>
+    <p class="colorCode" id="black">&0 : 黑</p>
+    <p class="colorCode" id="darkBlue">&1 : 深蓝</p>
+    <p class="colorCode" id="darkGreen">&2 : 深绿</p>
+    <p class="colorCode" id="darkAqua">&3 : 湖蓝</p>
+    <p class="colorCode" id="darkRed">&4 : 深红</p>
+    <p class="colorCode" id="darkPurple">&5 : 紫</p>
+    <p class="colorCode" id="gold">&6 : 金</p>
+    <p class="colorCode" id="gray">&7 : 灰</p>
+    <p class="colorCode" id="darkGray">&8 : 深灰</p>
+    <p class="colorCode" id="blue">&9 : 蓝</p>
+    <p class="colorCode" id="green">&a : 绿</p>
+    <p class="colorCode" id="aqua">&b : 天蓝</p>
+    <p class="colorCode" id="red">&c : 红</p>
+    <p class="colorCode" id="lightPurple">&d : 粉色</p>
+    <p class="colorCode" id="yellow">&e : 黄</p>
+    <p class="colorCode" id="white">&f : 白</p>
+    <p class="colorCode" id="obfuscated">&k : 随机字符</p>
+    <p class="colorCode" id="bold">&l : 粗体</p>
+    <p class="colorCode" id="strikethrough">&m : 中划线</p>
+    <p class="colorCode" id="underline">&n : 下划线</p>
+    <p class="colorCode" id="italic">&o : 斜体</p>
+    <p class="colorCode" id="reset">&r : 重置</p>
   </div>
 </div>
 </body>
