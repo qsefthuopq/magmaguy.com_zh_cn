@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cn">
 
 <!-- JQuery for woosh -->
 <script
@@ -35,25 +35,25 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>EliteMobs Webapp</title>
+    <title>EliteMobs网页应用</title>
 </head>
 <body>
 
 <div class="jumbotron">
-    <h1 class="display-4">EliteMobs Webapp</h1>
-    <p class="lead">Quickly create Custom Bosses, Regional Bosses, Custom Items and Treasure Chests for EliteMobs!</p>
+    <h1 class="display-4">EliteMobs网页编辑器</h1>
+    <p class="lead">快速创建自定义Boss、区域Boss、自定义物品和宝箱！</p>
     <hr class="my-4">
-    <p>Select which kind of file you'd like to create:</p>
+    <p>请选择你想要创建的文件类型：</p>
     <p class="lead">
     <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
         <a class="nav-item nav-link" data-toggle="tab" href="custom-bosses.html" role="tab"
-           aria-controls="nav-home" aria-selected="true">Custom Boss</a>
+           aria-controls="nav-home" aria-selected="true">自定义 Boss</a>
         <a class="nav-item nav-link" data-toggle="tab" href="regional-bosses.html" role="tab"
-           aria-controls="nav-profile" aria-selected="false">Regional Boss</a>
+           aria-controls="nav-profile" aria-selected="false">区域 Boss</a>
         <a class="nav-item nav-link" data-toggle="tab" href="custom-items.html" role="tab"
-           aria-controls="nav-profile" aria-selected="false">Custom Item</a>
+           aria-controls="nav-profile" aria-selected="false">自定义物品</a>
         <a class="nav-item nav-link active" data-toggle="tab" href="treasure-chests.html" role="tab"
-           aria-controls="nav-profile" aria-selected="false" id="active-tab">Treasure Chest</a>
+           aria-controls="nav-profile" aria-selected="false" id="active-tab">宝箱</a>
     </div>
 </div>
 
@@ -72,12 +72,12 @@
                     <label class="col-sm-4 col-form-label" for="isEnabled">
                         <a href="#" data-toggle="tooltip"
                            data-placement="left"
-                           title="Click for wiki entry! Sets whether the item is enabled."
+                           title="点击查看wiki条目！ Sets whether the item is enabled."
                            onclick="treasureChestLinkFactory('isEnabled')">
                             Enabled:</a></label>
                     <div class="container col-sm-8">
                         <select class="form-control required-field" id="isEnabled"
-                                data-toggle="tooltip" data-placement="right" title="Required field!">
+                                data-toggle="tooltip" data-placement="right" title="必填选项">
                             <option>true</option>
                             <option>false</option>
                         </select>
@@ -88,11 +88,11 @@
                     <label class="col-sm-4 col-form-label" for="chestType">
                         <a href="#" data-toggle="tooltip"
                            data-placement="left"
-                           title="Click for wiki entry! Sets the chest type."
+                           title="点击查看wiki条目！ Sets the chest type."
                            onclick="treasureChestLinkFactory('chestType')">Chest Type:</a></label>
                     <div class="container col-sm-8">
                         <select class="form-control required-field" id="chestType" data-toggle="tooltip"
-                                data-placement="right" title="Required field!">
+                                data-placement="right" title="必填选项">
                             <option>CHEST</option>
                             <option>TRAPPED_CHEST</option>
                             <option>ENDER_CHEST</option>
@@ -105,11 +105,11 @@
                     <label class="col-sm-4 col-form-label" for="facing">
                         <a href="#" data-toggle="tooltip"
                            data-placement="left"
-                           title="Click for wiki entry! Sets the chest type."
+                           title="点击查看wiki条目！ Sets the chest type."
                            onclick="treasureChestLinkFactory('facing')">Facing:</a></label>
                     <div class="container col-sm-8">
                         <select class="form-control required-field" id="facing" data-toggle="tooltip"
-                                data-placement="right" title="Required field!">
+                                data-placement="right" title="必填选项">
                             <option>NORTH</option>
                             <option>SOUTH</option>
                             <option>EAST</option>
@@ -122,11 +122,11 @@
                     <label class="col-sm-4 col-form-label" for="dropStyle">
                         <a href="#" data-toggle="tooltip"
                            data-placement="left"
-                           title="Click for wiki entry! Sets the chest type."
+                           title="点击查看wiki条目！ Sets the chest type."
                            onclick="treasureChestLinkFactory('dropStyle')">Drop Style:</a></label>
                     <div class="container col-sm-8">
                         <select class="form-control required-field" id="dropStyle" data-toggle="tooltip"
-                                data-placement="right" title="Required field!">
+                                data-placement="right" title="必填选项">
                             <option>single</option>
                             <option>group</option>
                         </select>
@@ -137,26 +137,26 @@
                     <label for="restockTimer" class="col-sm-4 col-form-label">
                         <a href="#" data-toggle="tooltip"
                            data-placement="left"
-                           title="Click for wiki entry! Sets the name of the item."
+                           title="点击查看wiki条目！设置物品名。"
                            onclick="treasureChestLinkFactory('restockTimer')">Restock timer (minutes)</a></label>
                     <div class="col-sm-8 autocomplete">
                         <input type="text" class="form-control required-field" id="restockTimer" placeholder="60"
                                required
-                               data-toggle="tooltip" data-placement="right" title="Required field!">
+                               data-toggle="tooltip" data-placement="right" title="必填选项">
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="lootList" class="col-sm-4 col-form-label">
                         <a href="#" data-toggle="tooltip" data-placement="left"
-                           title="Click for wiki entry! Sets the list of loot the Treasure Chest can drop."
+                           title="点击查看wiki条目！ Sets the list of loot the Treasure Chest can drop."
                            onclick="treasureChestLinkFactory('lootList')">Loot List:
                         </a>
                     </label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control lootList required-field" id="lootList"
                                placeholder="magmaguys_sword:1" data-toggle="tooltip" data-placement="right"
-                               title="Required field!">
+                               title="必填选项">
                     </div>
                 </div>
 
@@ -164,19 +164,19 @@
                     <label for="mimicChance" class="col-sm-4 col-form-label">
                         <a href="#" data-toggle="tooltip"
                            data-placement="left"
-                           title="Click for wiki entry! Sets the chance of a Treasure Chest spawning a custom boss instead of treasure."
+                           title="点击查看wiki条目！ Sets the chance of a Treasure Chest spawning a custom boss instead of treasure."
                            onclick="treasureChestLinkFactory('mimicChance')">Mimic chance:</a></label>
                     <div class="col-sm-8 autocomplete">
                         <input type="text" class="form-control required-field" id="mimicChance" placeholder="0.5"
                                required
-                               data-toggle="tooltip" data-placement="right" title="Required field!">
+                               data-toggle="tooltip" data-placement="right" title="必填选项">
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="mimicCustomBossesList" class="col-sm-4 col-form-label">
                         <a href="#" data-toggle="tooltip" data-placement="left"
-                           title="Click for wiki entry! Sets the list of Custom Bosses that may spawn from the Treasure Chest."
+                           title="点击查看wiki条目！ Sets the list of Custom Bosses that may spawn from the Treasure Chest."
                            onclick="treasureChestLinkFactory('mimicCustomBossesList')">List of possible Custom Bosses:
                         </a>
                     </label>
@@ -188,7 +188,7 @@
                 <div class="form-group row">
                     <label for="effects" class="col-sm-4 col-form-label">
                         <a href="#" data-toggle="tooltip" data-placement="left"
-                           title="Click for wiki entry! Sets the list of visual effects Treasure Chests have."
+                           title="点击查看wiki条目！ Sets the list of visual effects Treasure Chests have."
                            onclick="treasureChestLinkFactory('effects')">List of effects:
                         </a>
                     </label>
@@ -201,13 +201,13 @@
                     <label for="location" class="col-sm-4 col-form-label">
                         <a href="#" data-toggle="tooltip"
                            data-placement="left"
-                           title="Click for wiki entry! Sets the location of the Treasure Chest."
+                           title="点击查看wiki条目！ Sets the location of the Treasure Chest."
                            onclick="treasureChestLinkFactory('location')">Chest Location</a></label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control required-field" id="location"
                                placeholder="world,x,y,z,0,0"
                                required
-                               data-toggle="tooltip" data-placement="right" title="Required field!">
+                               data-toggle="tooltip" data-placement="right" title="必填选项">
                     </div>
                 </div>
 
@@ -240,9 +240,9 @@
             <div class="col-md-6 mt-md-0 mt-3">
 
                 <!-- Content -->
-                <h5 class="text-uppercase">Made by MagmaGuy</h5>
-                <p>If you like what I make, consider supporting me on <a
-                        href="https://www.patreon.com/magmaguy">Patreon</a>!</p>
+                <h5 class="text-uppercase">制作者：MagmaGuy，译者：qsefthuopq</h5>
+                <p>如果你喜欢我的作品，欢迎在我的<a
+                        href="https://www.patreon.com/magmaguy">Patreon</a>上捐赠！</p>
 
             </div>
             <!-- Grid column -->

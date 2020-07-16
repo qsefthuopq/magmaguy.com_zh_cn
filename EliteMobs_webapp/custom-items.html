@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cn">
 
 <!-- JQuery for woosh -->
 <script
@@ -35,25 +35,25 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>EliteMobs Webapp</title>
+    <title>EliteMobs网页应用</title>
 </head>
 <body>
 
 <div class="jumbotron">
-    <h1 class="display-4">EliteMobs Webapp</h1>
-    <p class="lead">Quickly create Custom Bosses, Regional Bosses, Custom Items and Treasure Chests for EliteMobs!</p>
+    <h1 class="display-4">EliteMobs网页编辑器</h1>
+    <p class="lead">快速创建自定义Boss、区域Boss、自定义物品和宝箱！</p>
     <hr class="my-4">
-    <p>Select which kind of file you'd like to create:</p>
+    <p>请选择你想要创建的文件类型：</p>
     <p class="lead">
     <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
         <a class="nav-item nav-link" data-toggle="tab" href="custom-bosses.html" role="tab"
-           aria-controls="nav-home" aria-selected="true">Custom Boss</a>
+           aria-controls="nav-home" aria-selected="true">自定义Boss</a>
         <a class="nav-item nav-link" data-toggle="tab" href="regional-bosses.html" role="tab"
-           aria-controls="nav-profile" aria-selected="false">Regional Boss</a>
+           aria-controls="nav-profile" aria-selected="false">区域 Boss</a>
         <a class="nav-item nav-link active" id="active-tab" data-toggle="tab" href="custom-items.html" role="tab"
-           aria-controls="nav-profile" aria-selected="false">Custom Item</a>
+           aria-controls="nav-profile" aria-selected="false">自定义物品</a>
         <a class="nav-item nav-link" data-toggle="tab" href="treasure-chests.html" role="tab"
-           aria-controls="nav-profile" aria-selected="false">Treasure Chest</a>
+           aria-controls="nav-profile" aria-selected="false">宝箱</a>
     </div>
 </div>
 
@@ -63,8 +63,8 @@
         <div class="form-group">
 
             <h3 class="card-header">
-                Create a <a href="https://github.com/MagmaGuy/EliteMobs/wiki/%5BGuide%5D-Creating-custom-loot">Custom
-                Item!</a>!
+                Create a <a href="https://github.com/MagmaGuy/EliteMobs/wiki/%5BGuide%5D-Creating-custom-loot">自定义
+                物品！</a>!
             </h3>
 
             <div class="card-body">
@@ -72,12 +72,12 @@
                     <label class="col-sm-4 col-form-label" for="isEnabled">
                         <a href="#" data-toggle="tooltip"
                            data-placement="left"
-                           title="Click for wiki entry! Sets whether the item is enabled."
+                           title="点击查看wiki条目！ Sets whether the item is enabled."
                            onclick="customItemLinkFactory('isEnabled')">
-                            Enabled:</a></label>
+                            是否启用:</a></label>
                     <div class="container col-sm-8">
                         <select class="form-control required-field" id="isEnabled"
-                                data-toggle="tooltip" data-placement="right" title="Required field!">
+                                data-toggle="tooltip" data-placement="right" title="必填选项">
                             <option>true</option>
                             <option>false</option>
                         </select>
@@ -88,17 +88,17 @@
 
                     <label for="material" class="col-sm-4 col-form-label">
                         <a href="#" data-toggle="tooltip" data-placement="left"
-                           title="Click for wiki entry! Sets the material type of the boss.Must use API values, click
+                           title="点击查看wiki条目！ Sets the material type of the boss.Must use API values, click
                             on the link to check valid values!"
-                           onclick="customItemLinkFactory('material')">Material:</a>
+                           onclick="customItemLinkFactory('material')">材料:</a>
                         <img src="img/link_white.png" alt="link" style="width:15px;height:15px;" data-toggle="tooltip"
                              data-placement="right"
-                             title="Click for valid values!"
+                             title="点击查看有效值！"
                              onclick="window.open('https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html')"></label>
                     <div class="col-sm-8 autocomplete">
                         <input type="text" class="form-control required-field" id="material" placeholder="DIAMOND_SWORD"
                                required
-                               data-toggle="tooltip" data-placement="right" title="Required field!">
+                               data-toggle="tooltip" data-placement="right" title="必填选项">
                     </div>
                 </div>
 
@@ -106,12 +106,12 @@
                     <label for="name" class="col-sm-4 col-form-label">
                         <a href="#" data-toggle="tooltip"
                            data-placement="left"
-                           title="Click for wiki entry! Sets the name of the item."
+                           title="点击查看wiki条目！设置物品名。"
                            onclick="customItemLinkFactory('name')">Name</a></label>
                     <div class="col-sm-8 autocomplete">
                         <input type="text" class="form-control required-field" id="name" placeholder="&cCool item!"
                                required
-                               data-toggle="tooltip" data-placement="right" title="Required field!">
+                               data-toggle="tooltip" data-placement="right" title="必填选项">
                     </div>
                 </div>
 
@@ -119,8 +119,8 @@
                     <label for="lore" class="col-sm-4 col-form-label">
                         <a href="#" data-toggle="tooltip"
                            data-placement="left"
-                           title="Click for wiki entry! Sets the item lore"
-                           onclick="customItemLinkFactory('lore')">Lore:</a></label>
+                           title="点击查看wiki条目！设置物品lore"
+                           onclick="customItemLinkFactory('lore')">Lore描述:</a></label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control lore" id="lore"
                                placeholder="&2Awesome sword!">
@@ -130,8 +130,8 @@
                 <div class="form-group row">
                     <label for="enchantments" class="col-sm-4 col-form-label">
                         <a href="#" data-toggle="tooltip" data-placement="left"
-                           title="Click for wiki entry! Sets the list of enchantments the item has."
-                           onclick="customItemLinkFactory('enchantments')">Enchantments:
+                           title="点击查看wiki条目！设置物品拥有的附魔。"
+                           onclick="customItemLinkFactory('enchantments')">附魔:
                         </a><img src="img/link_white.png" alt="link" style="width:15px;height:15px;"
                                  data-toggle="tooltip"
                                  data-placement="right"
@@ -146,7 +146,7 @@
                 <div class="form-group row">
                     <label for="potionEffects" class="col-sm-4 col-form-label">
                         <a href="#" data-toggle="tooltip" data-placement="left"
-                           title="Click for wiki entry! Sets the list of potion effects the item has."
+                           title="点击查看wiki条目！设置物品拥有的药水效果"
                            onclick="customItemLinkFactory('potionEffects')">Potion Effects:
                         </a><img src="img/link_white.png" alt="link" style="width:15px;height:15px;"
                                  data-toggle="tooltip"
@@ -163,8 +163,8 @@
                     <label for="dropWeight" class="col-sm-4 col-form-label">
                         <a href="#" data-toggle="tooltip"
                            data-placement="left"
-                           title="Click for wiki entry! Sets the drop weight of the item (check the wiki)."
-                           onclick="customItemLinkFactory('dropWeight')">Drop weight:</a></label>
+                           title="点击查看wiki条目！设置物品掉落权重"
+                           onclick="customItemLinkFactory('dropWeight')">掉落权重:</a></label>
                     <div class="col-sm-8 autocomplete">
                         <input type="text" class="form-control" id="dropWeight" placeholder="dynamic">
                     </div>
@@ -174,7 +174,7 @@
                     <label class="col-sm-4 col-form-label" for="scalability">
                         <a href="#" data-toggle="tooltip"
                            data-placement="left"
-                           title="Click for wiki entry! Sets the scalability of Elite Mobs loot (check the wiki)."
+                           title="点击查看wiki条目！ Sets the scalability of Elite Mobs loot (check the wiki)."
                            onclick="customItemLinkFactory('scalability')">Scalability:</a></label>
                     <div class="container col-sm-8">
                         <select class="form-control" id="scalability">
@@ -190,7 +190,7 @@
                     <label class="col-sm-4 col-form-label" for="itemType">
                         <a href="#" data-toggle="tooltip"
                            data-placement="left"
-                           title="Click for wiki entry! Sets the scalability of Elite Mobs loot (check the wiki)."
+                           title="点击查看wiki条目！ Sets the scalability of Elite Mobs loot (check the wiki)."
                            onclick="customItemLinkFactory('itemType')">Item Type:</a></label>
                     <div class="container col-sm-8">
                         <select class="form-control" id="itemType">
@@ -204,7 +204,7 @@
                 <br>
 
                 <button type="submit" class="btn btn-primary " id="generate">
-                    Generate!
+                    生成！
                 </button>
 
             </div>
@@ -230,9 +230,9 @@
             <div class="col-md-6 mt-md-0 mt-3">
 
                 <!-- Content -->
-                <h5 class="text-uppercase">Made by MagmaGuy</h5>
-                <p>If you like what I make, consider supporting me on <a
-                        href="https://www.patreon.com/magmaguy">Patreon</a>!</p>
+                <h5 class="text-uppercase">制作者：MagmaGuy，译者：qsefthuopq</h5>
+                <p>如果你喜欢我的作品，欢迎在我的<a
+                        href="https://www.patreon.com/magmaguy">Patreon</a>上捐赠！</p>
 
             </div>
             <!-- Grid column -->
